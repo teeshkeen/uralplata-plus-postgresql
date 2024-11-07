@@ -1,11 +1,9 @@
 const Sequelize = require('sequelize');
 const config = require('./default');
 
-const sequelize = new Sequelize(config.database.name, config.database.username, config.database.password, {
-  host: config.database.host,
+const sequelize = new Sequelize(config.database.url, {
   dialect: config.database.dialect,
-  port: config.database.port,
-  logging: console.log,
+  dialectOptions: config.database.dialectOptions
 });
 
 const Category = require('../models/Category')(sequelize, Sequelize.DataTypes);
