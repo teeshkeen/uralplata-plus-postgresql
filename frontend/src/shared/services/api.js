@@ -22,9 +22,9 @@ api.interceptors.request.use((config) => {
 api.interceptors.response.use(
   (response) => response,
   (error) => {
-    if (error.response?.status === 401) {
+    if (error.response?.status === 401 && window.location.pathname.startsWith('/admin')) {
       localStorage.removeItem('token'); // Удаляем невалидный токен
-      window.location.href = '/login'; // Перенаправляем на страницу логина
+      window.location.href = '/login'; // Перенаправляем на страницу логина только для админ-маршрутов
     }
     return Promise.reject(error);
   }
