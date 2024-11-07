@@ -1,10 +1,26 @@
 const Sequelize = require('sequelize');
 const config = require('./default');
 
-const sequelize = new Sequelize(config.database.url, {
-  dialect: config.database.dialect,
-  dialectOptions: config.database.dialectOptions
+const sequelize = new Sequelize(process.env.DATABASE_URL, {
+  dialect: 'postgres',
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: false
+    }
+  },
+  logging: console.log // Добавьте это для отладки SQL-запросов
 });
+
+// Проверка подключения
+sequelize
+  .authenticate()
+  .then(() => {
+    console.log('Database connection has been established successfully.');
+  })
+  .catch(err => {
+    console.error('Unable to connect to the database:', err);
+  });
 
 const Category = require('../models/Category')(sequelize, Sequelize.DataTypes);
 const Product = require('../models/Product')(sequelize, Sequelize.DataTypes);

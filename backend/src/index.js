@@ -18,6 +18,13 @@ app.use(cors({
   optionsSuccessStatus: 200
 }));
 
+console.log('Environment variables:', {
+  NODE_ENV: process.env.NODE_ENV,
+  PORT: process.env.PORT,
+  DATABASE_URL: process.env.DATABASE_URL ? 'Set' : 'Not set',
+  JWT_SECRET: process.env.JWT_SECRET ? 'Set' : 'Not set'
+});
+
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
