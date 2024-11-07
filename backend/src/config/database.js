@@ -22,6 +22,18 @@ sequelize
     console.error('Unable to connect to the database:', err);
   });
 
+  const initializeModels = async () => {
+    try {
+      await sequelize.sync({ force: false });
+      console.log('Models synchronized successfully');
+    } catch (error) {
+      console.error('Error synchronizing models:', error);
+      throw error;
+    }
+  };
+  
+  initializeModels();
+
 const Category = require('../models/Category')(sequelize, Sequelize.DataTypes);
 const Product = require('../models/Product')(sequelize, Sequelize.DataTypes);
 const User = require('../models/User')(sequelize, Sequelize.DataTypes);

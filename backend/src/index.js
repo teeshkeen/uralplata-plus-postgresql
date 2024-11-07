@@ -11,7 +11,7 @@ const bcrypt = require('bcryptjs');
 const app = express();
 
 app.use(cors({
-  origin: ['http://localhost:3000', 'http://127.0.0.1:3000', 'http://localhost:5001'],
+  origin: ['http://localhost:3000', 'https://web-production-5fda0.up.railway.app', 'http://localhost:5001'],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
@@ -23,6 +23,14 @@ console.log('Environment variables:', {
   PORT: process.env.PORT,
   DATABASE_URL: process.env.DATABASE_URL ? 'Set' : 'Not set',
   JWT_SECRET: process.env.JWT_SECRET ? 'Set' : 'Not set'
+});
+
+// src/index.js
+app.get('/', (req, res) => {
+  res.json({
+    message: 'Server is running',
+    timestamp: new Date().toISOString()
+  });
 });
 
 // Middleware
