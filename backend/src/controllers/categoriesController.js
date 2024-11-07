@@ -66,23 +66,32 @@ const categoriesController = {
     }
   },
 
-  async deleteCategory(req, res) {
-    try {
-      const { id } = req.params;
-      const deleted = await Category.destroy({
-        where: { id }
-      });
-
-      if (deleted) {
-        res.json({ message: 'Category deleted successfully' });
-      } else {
-        res.status(404).json({ message: 'Category not found' });
-      }
-    } catch (error) {
-      console.error('Error deleting category:', error);
-      res.status(500).json({ message: 'Error deleting category' });
+  // controllers/categoriesController.js
+async deleteCategory(req, res) {
+  try {
+    const { id } = req.params;
+    
+    // Находим категорию
+    const category = await Category.findByPk(id);
+    
+    if (!category) {
+      return res.status(404).json({ error: 'Category not found' });
     }
+
+    // Удаляем все связанные продукты
+    await Product.destroy({
+      where: { categoryId: id }
+    });
+
+    // Удаляем саму категорию
+    await category.destroy();
+
+    res.status(200).json({ message: 'Category and related products deleted successfully' });
+  } catch (error) {
+    console.error('Error deleting category:', error);
+    res.status(500).json({ error: 'Internal server error', details: error.message });
   }
+}
 };
 
 module.exports = categoriesController;

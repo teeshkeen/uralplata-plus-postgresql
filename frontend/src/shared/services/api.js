@@ -65,8 +65,15 @@ export const productAPI = {
   updateProduct: (id, data) => 
     api.put(`/products/${id}`, data),
   
-  deleteProduct: (id) => 
-    api.delete(`/products/${id}`)
+  deleteProduct: async (id) => {
+    try {
+      const response = await api.delete(`/products/${id}`);
+      return response;
+    } catch (error) {
+      console.error('Error deleting product:', error);
+      throw error;
+    }
+  },
 };
 
 export default api;

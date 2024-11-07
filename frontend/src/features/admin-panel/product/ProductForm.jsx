@@ -29,6 +29,7 @@ const ProductForm = ({ product, onSave, onCancel }) => {
   };
 
   const handleSubmit = (e) => {
+    
     e.preventDefault();
     onSave(formData);
   };
@@ -75,7 +76,7 @@ const ProductForm = ({ product, onSave, onCancel }) => {
       <div>
         <label className="block text-sm font-medium text-gray-700">Цена (безнал)</label>
         <input
-          type="number"
+          type="text"
           name="costFirst"
           value={formData.costFirst}
           onChange={handleInputChange}
@@ -87,7 +88,7 @@ const ProductForm = ({ product, onSave, onCancel }) => {
       <div>
         <label className="block text-sm font-medium text-gray-700">Цена (нал)</label>
         <input
-          type="number"
+          type="text"
           name="costSecond"
           value={formData.costSecond}
           onChange={handleInputChange}

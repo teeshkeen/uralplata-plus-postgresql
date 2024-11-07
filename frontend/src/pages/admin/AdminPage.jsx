@@ -91,10 +91,13 @@ const AdminPage = () => {
 
   const handleDeleteCategory = async (id) => {
     try {
-      await categoryAPI.deleteCategory(id);
-      loadCategories();
+      if (window.confirm('Вы уверены, что хотите удалить эту категорию и все связанные с ней товары?')) {
+        await categoryAPI.deleteCategory(id);
+        loadCategories(); // Перезагрузка списка категорий
+      }
     } catch (error) {
       console.error('Error deleting category:', error);
+      alert('Ошибка при удалении категории');
     }
   };
 
@@ -114,11 +117,13 @@ const AdminPage = () => {
 
   const handleAddProduct = async (product) => {
     try {
-      const newProduct = await productAPI.createProduct(currentCategory.id, product);
-      setCurrentCategoryProducts(prevProducts => [...prevProducts, newProduct]);
+      await productAPI.createProduct(currentCategory.id, product);
+      // Сразу после создания загружаем обновленный список продуктов
+      const response = await productAPI.getProductsByCategoryId(currentCategory.id);
+      setCurrentCategoryProducts(response.data.products);
+      setIsProductModalOpen(false);
     } catch (error) {
       console.error('Error adding product:', error);
-      alert('Ошибка при добавлении продукта: ' + (error.response?.data?.message || error.message));
     }
   };
 
@@ -135,11 +140,15 @@ const AdminPage = () => {
 
   const handleDeleteProduct = async (id) => {
     try {
-      await productAPI.deleteProduct(id);
-      const response = await productAPI.getProductsByCategoryId(currentCategory.id);
-      setCurrentCategoryProducts(response.data.products);
+      if (window.confirm('Вы уверены, что хотите удалить этот товар?')) {
+        await productAPI.deleteProduct(id);
+        // После успешного удаления обновляем список продуктов
+        const response = await productAPI.getProductsByCategoryId(currentCategory.id);
+        setCurrentCategoryProducts(response.data.products);
+      }
     } catch (error) {
       console.error('Error deleting product:', error);
+      alert('Ошибка при удалении товара');
     }
   };
 
@@ -149,29 +158,49 @@ const AdminPage = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-4">Admin Panel</h1>
+      <h1 className="text-2xl sm:text-3xl font-bold mb-4">Admin Panel</h1>
       <LogoutButton />
-      <button onClick={() => setIsCategoryModalOpen(true)} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+      
+      <button 
+        onClick={() => setIsCategoryModalOpen(true)} 
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-1 px-2 sm:py-2 sm:px-4 text-sm sm:text-base rounded mb-4"
+      >
         Create Category
       </button>
-      <ul>
-        {categories.map((category) => (
-          <li key={category.id} className="flex justify-between items-center py-2">
-            <span>{category.name}</span>
-            <div>
-              <button onClick={() => handleEditCategory(category)} className="mr-2 bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-1 px-2 rounded">
-                Edit
-              </button>
-              <button onClick={() => handleDeleteCategory(category.id)} className="mr-2 bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded">
-                Delete
-              </button>
-              <button onClick={() => handleOpenProductModal(category.id)} className="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded">
-                Products
-              </button>
-            </div>
-          </li>
-        ))}
-      </ul>
+
+      <div className="overflow-y-auto max-h-[calc(90vh-200px)]">
+        <ul className="space-y-2">
+          {categories.map((category) => (
+            <li 
+              key={category.id} 
+              className="flex flex-col sm:flex-row justify-between items-start sm:items-center p-2 bg-white rounded shadow hover:bg-gray-50"
+            >
+              <span className="mb-2 sm:mb-0 font-medium">{category.name}</span>
+              <div className="flex flex-wrap gap-2">
+                <button 
+                  onClick={() => handleEditCategory(category)} 
+                  className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-1 px-2 text-xs sm:text-sm rounded"
+                >
+                  Edit
+                </button>
+                <button 
+                  onClick={() => handleDeleteCategory(category.id)} 
+                  className="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 text-xs sm:text-sm rounded"
+                >
+                  Delete
+                </button>
+                <button 
+                  onClick={() => handleOpenProductModal(category.id)} 
+                  className="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 text-xs sm:text-sm rounded"
+                >
+                  Products
+                </button>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+
       <CategoryModal
         isOpen={isCategoryModalOpen}
         onClose={() => setIsCategoryModalOpen(false)}
@@ -179,6 +208,7 @@ const AdminPage = () => {
         onChange={handleCategoryInputChange}
         onSubmit={handleCategorySubmit}
       />
+      
       <ProductModal
         isOpen={isProductModalOpen}
         onClose={() => setIsProductModalOpen(false)}

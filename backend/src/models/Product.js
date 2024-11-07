@@ -1,5 +1,11 @@
+// backend/src/models/Product.js
 module.exports = (sequelize, DataTypes) => {
   const Product = sequelize.define('Product', {
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true
+    },
     name: {
       type: DataTypes.STRING,
       allowNull: false
@@ -9,11 +15,11 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: true
     },
     costFirst: {
-      type: DataTypes.DECIMAL(10, 2),
+      type: DataTypes.STRING, // Изменено с DECIMAL на STRING
       allowNull: false
     },
     costSecond: {
-      type: DataTypes.DECIMAL(10, 2),
+      type: DataTypes.STRING, // Изменено с DECIMAL на STRING
       allowNull: false
     },
     countType: {
@@ -22,18 +28,17 @@ module.exports = (sequelize, DataTypes) => {
     },
     imageUrl: {
       type: DataTypes.STRING,
-      allowNull: true,
-      validate: {
-        isUrl: true
+      allowNull: true
+    },
+    categoryId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'Categories',
+        key: 'id'
       }
     }
-  }, {
-    timestamps: true
   });
-
-  Product.associate = (models) => {
-    Product.belongsTo(models.Category, { as: 'category', foreignKey: 'categoryId' });
-  };
 
   return Product;
 };
