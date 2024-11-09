@@ -160,3 +160,31 @@ body {
   transform: scale(1.1); /* Увеличение при наведении */
 }
 
+
+
+/* skeleton's loading */
+
+.skeleton {
+  background-color: #e0e0e0; /* Серый цвет */
+  border-radius: 4px; /* Закругленные углы */
+  animation: shimmer 1.5s infinite; /* Анимация мерцания */
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.skeleton-text {
+  height: 20px; /* Высота для текстовых элементов */
+  margin-bottom: 10px; /* Отступ между текстами */
+}
+
+.skeleton-title {
+  height: 30px; /* Высота для заголовков */
+  margin-bottom: 15px; /* Отступ между заголовками */
+}

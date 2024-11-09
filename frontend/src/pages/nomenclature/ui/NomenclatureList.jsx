@@ -100,7 +100,7 @@ const NomenclatureList = () => {
           image={'https://cdn2.picryl.com/photo/2021/03/17/soviet-armenian-k50-6-electrolytic-capacitors-0d6cca-1024.jpg'} 
           costFirst={'9 000'} 
           costSecond={'10 000'}
-          /> : category.products.slice(0, visibleCount).map(product => (
+          /> : category.products.map(product => (
             <NomenclatureCard 
               key={product.id} 
               title={product.name} 
@@ -113,14 +113,6 @@ const NomenclatureList = () => {
               costSecond={product.costSecond}
             />
           ))}
-            {visibleCount < category.products.length && ( // Проверяем, есть ли скрытые карточки
-              <button 
-                onClick={handleShowMore} 
-                className="bg-blue- 500 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
-              >
-                Показать еще
-              </button>
-            )}
           </div>
         </div>
       </div>
