@@ -121,7 +121,7 @@ body {
 
   &:disabled {
     cursor: default;
-    background-color: rgba(37, 68, 65, 1);
+    background-color: rgb(96, 112, 110);
   }
 }
 
