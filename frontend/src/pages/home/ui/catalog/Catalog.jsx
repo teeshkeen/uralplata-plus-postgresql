@@ -41,7 +41,7 @@ const Catalog = () => {
     <div className='mb-5'>
       <BlockTitle>Каталог</BlockTitle>
     </div>
-    <div className="1280:flex 1280:flex-row 1280:items-start 1280:gap-14">
+    <div className="1280:flex 1280:flex-row 1280:items-start 1280:gap-14 mb-[30px]">
       <CatalogNav styles='hidden 1280:flex'/>
       <div id='catalogCards' className='grid grid-cols-1 768:grid-cols-2 1280:grid-cols-3 gap-5 auto-rows-fr'>
                       {
@@ -53,11 +53,11 @@ const Catalog = () => {
         ))}
 
     </div>
+
+    </div>
     {visibleCount < categories.length && (
             <Button text={'Показать еще'} onClick={handleShowMore}/>
           )}
-    </div>
-    
   </div>
     
   );
