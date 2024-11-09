@@ -20,7 +20,7 @@ const CatalogCard = ({ title, cost, imageUrl }) => {
                     </p>
                 </div>
                 <div className="flex justify-center mt-4">
-                    <Button styles={`w-[177px]`} text='Подробнее' />
+                    <Button styles={`w-[180px]`} text='Подробнее' />
                 </div>
             </div>
         </div>
