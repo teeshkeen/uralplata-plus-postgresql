@@ -33,7 +33,7 @@ const CatalogNav = ({styles = ''}) => {
 
   return (
     <div className={`flex flex-col bg-white p-5 rounded-lg min-w-64 shadow-lg ${styles}`}>
-      <ul>
+      <ul className='space-y-[10px]'>
         {categories.map(category => (
           <li key={category.id} onClick={() => handleCardClick(category.id)}>
             <CatalogNavItem title={category.name} />
