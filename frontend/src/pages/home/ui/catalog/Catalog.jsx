@@ -51,10 +51,11 @@ const Catalog = () => {
             <CatalogCard name={category.name} title={category.name} cost={category.cost} imageUrl={category.imageUrl} /> {/* Pass category name and image to CatalogCard */}
           </div>
         ))}
-          {visibleCount < categories.length && (
+
+    </div>
+    {visibleCount < categories.length && (
             <Button text={'Показать еще'} onClick={handleShowMore}/>
           )}
-    </div>
     </div>
     
   </div>
