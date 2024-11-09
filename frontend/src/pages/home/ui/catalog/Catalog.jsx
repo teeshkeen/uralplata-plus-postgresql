@@ -55,9 +55,11 @@ const Catalog = () => {
     </div>
 
     </div>
+    <div className="768:flex 768:justify-center">
     {visibleCount < categories.length && (
             <Button text={'Показать еще'} onClick={handleShowMore}/>
           )}
+    </div>
   </div>
     
   );
