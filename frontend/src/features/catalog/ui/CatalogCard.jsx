@@ -4,7 +4,7 @@ import handleCardClick from '../../../shared/utils/scroll'
 
 const CatalogCard = ({ title, cost, imageUrl }) => {
     return (
-        <div onClick={handleCardClick} className="flex flex-col text-center h-full rounded overflow-hidden shadow-lg min-w-[320px]">
+        <div onClick={handleCardClick} className="flex flex-col text-center h-full rounded overflow-hidden shadow-lg 360:min-w-[320px]">
             <div className="relative pt-[75%]"> {/* 4:3 Aspect Ratio */}
                 <img
                     className="absolute top-0 left-0 w-full h-full object-cover"

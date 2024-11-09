@@ -4,9 +4,11 @@ import BlockTitle from '../../../../shared/ui/BlockTitle';
 import CatalogCard from '../../../../features/catalog/ui/CatalogCard';
 import CatalogNav from '../catalog/ui/CatalogNav'
 import { useNavigate } from 'react-router-dom';
+import Button from '../../../../shared/ui/Button';
 const Catalog = () => {
   const [categories, setCategories] = useState([]);
   const [error, setError] = useState(null);
+  const [visibleCount, setVisibleCount] = useState(5); // Количество видимых карточек
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -30,6 +32,10 @@ const Catalog = () => {
   if (error) {
     return <div className="text-red-500">{error}</div>;
   }
+
+  const handleShowMore = () => {
+    setVisibleCount(prevCount => prevCount + 5); // Увеличиваем количество видимых карточек
+  };
   return (
     <div id='catalog' className='mb-14 768:mb-24'>
     <div className='mb-5'>
@@ -40,11 +46,14 @@ const Catalog = () => {
       <div id='catalogCards' className='grid grid-cols-1 768:grid-cols-2 1280:grid-cols-3 gap-5 auto-rows-fr'>
                       {
 
-                      categories.map(category => (
+                      categories.slice(0, visibleCount).map(category => (
           <div key={category.id} onClick={() => handleCardClick(category.id)}>
             <CatalogCard name={category.name} title={category.name} cost={category.cost} imageUrl={category.imageUrl} /> {/* Pass category name and image to CatalogCard */}
           </div>
         ))}
+          {visibleCount < categories.length && (
+            <Button text={'Показать еще'} onClick={handleShowMore}/>
+          )}
     </div>
     </div>
     
