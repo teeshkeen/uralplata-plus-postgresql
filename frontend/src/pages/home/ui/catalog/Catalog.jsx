@@ -37,7 +37,7 @@ const Catalog = () => {
     </div>
     <div className="1280:flex 1280:flex-row 1280:items-start 1280:gap-14">
       <CatalogNav styles='hidden 1280:flex'/>
-      <div id='catalogCards' className='grid grid-cols-1 768:grid-cols-2 1280:grid-cols-3 1920:grid-cols-4 gap-4 auto-rows-fr
+      <div id='catalogCards' className='grid grid-cols-1 768:grid-cols-2 1280:grid-cols-3 1920:grid-cols-4 gap-4 grid-template-colums-custom
                     '>
                       {
                       categories.map(category => (
