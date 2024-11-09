@@ -18,8 +18,8 @@ const FeedbackSlide = ({ avatar, name, date, text, onOpenModal }) => {
                     </div>
                     <div className="max-h-24 overflow-hidden relative">
                         <p className='font-gilroyLight text-md leading-5'>
-                            {text.length > 100 ? text.slice(0, 99) + '...' : text}
-                            {text.length > 99 && (
+                            {text.length > 90 ? text.slice(0, 90) + '...' : text}
+                            {text.length > 90 && (
                                 <div
                                     className='text-gray-500 cursor-pointer'
                                     onClick={onOpenModal} // Используем переданную функцию для открытия модала

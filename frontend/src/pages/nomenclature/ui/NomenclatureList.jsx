@@ -51,7 +51,7 @@ const NomenclatureList = () => {
     {category.name !== '' ? <NomenclatureTitle title={category.name} cost={category.cost} /> : <NomenclatureTitle title={'Название категории'} cost={'5 000'}/>}
       <div>
         <div className='space-y-4 mb-16 1440:hidden'>
-          {category.products ? <NomenclatureCard 
+          {category.products.length === 0 ? <NomenclatureCard 
           key={0} 
           title={"Пример"} 
           desc={"Описание примера"} 
@@ -90,7 +90,7 @@ const NomenclatureList = () => {
             </div>
           </div>
           <div className="self-stretch flex-col justify-start items-start gap-5 flex">
-          {category.products ? <NomenclatureCard 
+          {category.products.length === 0 ? <NomenclatureCard 
           key={0} 
           title={"Пример"} 
           desc={"Описание примера"} 

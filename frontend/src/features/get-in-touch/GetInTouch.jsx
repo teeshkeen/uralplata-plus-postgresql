@@ -62,7 +62,7 @@ const GetInTouch = () => {
     };
     
     return (
-        <div id='getintouch' className='flex flex-col bg-white rounded-md max-w-80 mx-auto items-center text-center justify-center p-10 shadow-md mb-14
+        <div id='getintouch' className='flex flex-col bg-white rounded-md max-w-80 mx-auto text-center justify-center p-10 shadow-md mb-14
         768:block
         768:max-w-full 768:rounded-lg 768:mb-24 768:py-12
         960:max-w-get-in-touch

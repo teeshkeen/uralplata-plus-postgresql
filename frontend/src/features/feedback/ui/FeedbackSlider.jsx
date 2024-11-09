@@ -76,7 +76,7 @@ const FeedbackSlider = () => {
             <div className="flex space-x-2 items-center">
             <h2 className="text-lg font-bold">{selectedFeedback.name}</h2>
             <h2 className='text-gray-500'>{selectedFeedback.date}</h2></div>
-            <p className="font-gilroyLight text-md leading-5">{selectedFeedback.text}</p>
+            <p className="font-gilroyLight text-base leading-5">{selectedFeedback.text}</p>
           </div>
         </Modal>
       )}

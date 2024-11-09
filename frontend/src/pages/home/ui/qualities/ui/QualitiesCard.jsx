@@ -11,25 +11,25 @@ const QualitiesCard = ({title = "Random", desc = "Lorem epsilum xyepsilvLorem ep
         (() => {
           if (image === 1) {
             return (
-              <img className='768:max-w-28 size-32' src={hand} alt="" />
+              <img className='max-w-[120px] size-32' src={hand} alt="" />
             )
           } else if (image === 2) {
             return (
-              <img className='768:max-w-28 size-32' src={secure} alt="" />
+              <img className='max-w-[120px] size-32' src={secure} alt="" />
             )
           } else if (image === 3) {
             return ( 
-              <img className='768:max-w-28 size-32' src={ship} alt="" />
+              <img className='max-w-[120px] size-32' src={ship} alt="" />
             )
           } else {
             return (
-              <img className='768:max-w-28 size-32' src={price} alt="" />
+              <img className='max-w-[120px] size-32' src={price} alt="" />
             )
           }
         })()
       }
-        <span className='768:text-xl'>{title}</span>
-        <p className='leading-5 768:text-lg'>{desc}</p>
+        <span className='text-[18px] 768:text-[20px]'>{title}</span>
+        <p className='leading-5 text-[16px] max-w-[272px] 768:text-[18px] 768:max-w-[340px]'>{desc}</p>
     </div>
   )
 }
