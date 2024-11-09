@@ -16,7 +16,13 @@ module.exports = {
       },
       extend: {
         colors: {
-          'button-hover': 'rgba(37, 68, 65, 1)',
+          'clickable-hover': 'rgba(57, 88, 85, 1)',
+          'clickable-default': 'rgba(37, 68, 65, 1)',
+          'clickable-active': 'rgba(17, 48, 45, 1)',
+
+          'link-default-color': 'rgba(33, 33, 33, 1)',
+          'link-hover-color': 'rgba(37, 68, 65, 1)',
+          'link-active-color': 'rgba(17, 48, 45, 1)',
         },
         spacing: {
           '600px': '37.5rem',

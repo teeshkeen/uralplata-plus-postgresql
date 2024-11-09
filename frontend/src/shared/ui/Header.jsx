@@ -23,16 +23,16 @@ const Header = () => {
             <NavItem id={'about'}>О компании</NavItem>
             <NavItem id={'catalog'}>Каталог</NavItem>
             <NavItem id={'feedback'}>Отзывы</NavItem>
-            <NavItem id={'contacts'} isRouting={true}>Контакты</NavItem>
+            <NavItem id={'contacts'} isRouting={false}>Контакты</NavItem>
           </div>
 
           <ul className='flex gap-x-14 font-gilroyLight text-lg'>
-            <li><a className='hover:text-gray-400' href="tel:+73517767013">+7 (351) 776-70-13</a></li>
-            <li><a className='hover:text-gray-400' href="mailto:uralplata74@yandex.ru">uralplata74@yandex.ru</a></li>
+            <li><a className='text-link-default-color hover:text-link-hover-color active:text-link-active-color' href="tel:+73517767013">+7 (351) 776-70-13</a></li>
+            <li><a className='text-link-default-color hover:text-link-hover-color active:text-link-active-color' href="mailto:uralplata74@yandex.ru">uralplata74@yandex.ru</a></li>
           </ul>
         </div>
         <div className="menuButton flex z-40 1440:hidden" onClick={() => setMenuOpen(!isMenuOpen)}>
-          {!isMenuOpen ? <OpenMenuIcon /> : <CloseMenuIcon styles={` ${isMenuOpen ? 'text-white' : ''}`} />}
+          {!isMenuOpen ? <OpenMenuIcon /> : ``}
         </div>
       </div>
       {isMenuOpen ? <DisableBodyScroll /> : ''}

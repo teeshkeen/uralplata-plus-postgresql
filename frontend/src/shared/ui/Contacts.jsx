@@ -25,19 +25,19 @@ const Contacts = () => {
                                     <span>Пн-Пт 9:00 — 18:00</span>
                                 </div>
                             </div>
-                            <a  href="https://yandex.ru/maps/-/CDd6y852" className='block 960:hidden hover:text-gray-400'>Открыть в Яндекс.Картах</a>
+                            <a  href="https://yandex.ru/maps/-/CDd6y852" className='block 960:hidden text-link-default-color hover:text-link-hover-color active:text-link-active-color'>Открыть в Яндекс.Картах</a>
                         </div>
 
                         <div className="flex flex-col mb-5">
                             <span>Прием звонков: круглосуточно</span>
-                            <span><a href="tel:+73517767013">+7 (351) 776-70-13</a>, <a href="tel:+79000614535">+7 (900) 061-45-35</a></span>
+                            <span className='text-link-default-color hover:text-link-hover-color active:text-link-active-color'><a href="tel:+73517767013">+7 (351) 776-70-13</a>, <a href="tel:+79000614535">+7 (900) 061-45-35</a></span>
                         </div>
                     </div>
                     <div className="flex flex-col space-y-2">
-                        <div className=''>
+                        {/* <div className=''>
                             <h1 className='font-gilroyMedium text-lg 768:text-xl'>Мы в социальных сетях:</h1>
-                        </div>
-                        <div className="flex items-center space-x-4">
+                        </div> */}
+                        {/* <div className="flex items-center space-x-4">
                             <a href="/">
                                 <img className='size-9' src={vk} alt="" />
                             </a>
@@ -45,7 +45,7 @@ const Contacts = () => {
                             <a href="/">
                                 <img className='size-9' src={tg} alt="" />
                             </a>
-                        </div>
+                        </div> */}
 
                     </div>
 

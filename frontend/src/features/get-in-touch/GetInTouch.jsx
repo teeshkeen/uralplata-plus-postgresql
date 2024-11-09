@@ -83,9 +83,9 @@ const GetInTouch = () => {
 
             <div className="flex justify-center items-center text-left mb-5 space-x-2 768:mb-10">
                 <input className='flex border-transparent focus:border-transparent focus:ring-0
-                w-4 h-4 text-white bg-gray-100 border-gray-300 rounded  dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600' type="checkbox" id='check-box' checked={isChecked} 
+                w-4 h-4 text-white bg-gray-100 border-gray-300 rounded accent-clickable-active  dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:bg-gray-700 dark:border-gray-600' type="checkbox" id='check-box' checked={isChecked} 
         onChange={handleCheckboxChange} />
-                <label className='text-base font-gilroyLight leading-5' for="check-box">Я согласен с политикой конфиденциальности</label>
+                <label className='text-base font-gilroyLight leading-5 ' for="check-box">Я согласен с политикой конфиденциальности</label>
             </div>
             <FormButton text='Отправить' fun={handleSubmit} disabled={formSubmit}/>
             {showModal && (

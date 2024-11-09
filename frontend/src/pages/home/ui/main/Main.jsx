@@ -16,7 +16,7 @@ const Lead = () => {
                             768:text-3xl 768:mb-10
                             '>Принимаем любые радиодетали
             и приборы, содержащие драгоценные металлы <span className='font-gilroyMedium'>в Челябинске</span></p>
-            <Button href="/#getintouch" text='Обратный звонок'/>
+            <Button styles={``} href="/#getintouch" text='Обратный звонок'/>
         </div>
     </div>
   )

@@ -2,7 +2,9 @@ import React from 'react'
 
 const Button = ({text, href, styles}) => {
   return (
-    <a href={href} className={`ButtonFormSubmit cursor-pointer px-10 py-3 rounded-lg bg-green-600 hover:bg-button-hover transition-all text-base font-normal text-white 768:text-xl ${styles}`}>{text}</a>
+    <a href={href} className={`flex justify-center ButtonFormSubmit cursor-pointer px-10 py-3 rounded-lg bg-clickable-default hover:bg-clickable-hover active:bg-clickable-active transition-all text-base font-normal text-white 768:inline-block 768:text-xl ${styles}`}>
+      <div className="text-center">{text}</div>
+      </a>
   )
 }
 

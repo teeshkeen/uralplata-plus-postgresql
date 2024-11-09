@@ -11,19 +11,19 @@ const Footer = () => {
                     <div className="">
                         <div className="mb-5 text-lg 768:text-xl">Меню</div>
                         <ul className='font-gilroyLight text-base space-y-2 768:text-lg'>
-                            <li><a className='hover:text-gray-400' href="/">Главная</a></li>
-                            <li><a className='hover:text-gray-400' href="/#about">О компании</a></li>
-                            <li><a className='hover:text-gray-400' href="/#catalog">Каталог</a></li>
-                            <li><a className='hover:text-gray-400' href="/#feedback">Отзывы</a></li>
-                            <li><a className='hover:text-gray-400' href="/#contacts">Контакты</a></li>
+                            <li><a className='hover:text-link-hover-color active:text-link-active-color' href="/">Главная</a></li>
+                            <li><a className='hover:text-link-hover-color active:text-link-active-color' href="/#about">О компании</a></li>
+                            <li><a className='hover:text-link-hover-color active:text-link-active-color' href="/#catalog">Каталог</a></li>
+                            <li><a className='hover:text-link-hover-color active:text-link-active-color' href="/#feedback">Отзывы</a></li>
+                            <li><a className='hover:text-link-hover-color active:text-link-active-color' href="/#contacts">Контакты</a></li>
                         </ul>
                     </div>
 
                     <div className="">
                         <div className="mb-5 text-lg 768:text-xl">Контакты</div>
                         <ul className='font-gilroyLight text-base space-y-2 768:text-lg'>
-                            <li><a className='hover:text-gray-400' href="tel:+73517767013">+7 (351) 776-70-13</a></li>
-                            <li><a className='hover:text-gray-400' href="mailto:uralplata74@yandex.ru">uralplata74@yandex.ru</a></li>
+                            <li><a className='hover:text-link-hover-color active:text-link-active-color' href="tel:+73517767013">+7 (351) 776-70-13</a></li>
+                            <li><a className='hover:text-link-hover-color active:text-link-active-color' href="mailto:uralplata74@yandex.ru">uralplata74@yandex.ru</a></li>
                         </ul>
                     </div>
 
@@ -49,7 +49,7 @@ const Footer = () => {
                 <div className="text-center">
                     <div className="font-gilroyLight text-base 768:text-lg">Copyright © 2019 - <span>{today.getFullYear()}</span></div>
                     <div className="text-lg 768:text-xl">УралПлата</div>
-                    <div className="text-sm text-gray-400"><a href="https://t.me/teeshkeen">site created by teeshkeen</a></div>
+                    <div className="text-sm text-white hover:text-gray-400 active:text-gray-600"><a href="https://t.me/teeshkeen">Сайт разработан  — teeshkeen</a></div>
                 </div>
             </div>
         </div>
