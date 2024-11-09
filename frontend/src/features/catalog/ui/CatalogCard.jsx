@@ -19,7 +19,7 @@ const CatalogCard = ({ title, cost, imageUrl }) => {
                         до {cost} т.р. / кг
                     </p>
                 </div>
-                <div className="mt-4">
+                <div className="flex justify-center mt-4">
                     <Button styles={`w-[177px]`} text='Подробнее' />
                 </div>
             </div>
