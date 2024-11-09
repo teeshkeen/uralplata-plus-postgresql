@@ -37,9 +37,10 @@ const Catalog = () => {
     </div>
     <div className="1280:flex 1280:flex-row 1280:items-start 1280:gap-14">
       <CatalogNav styles='hidden 1280:flex'/>
-      <div id='catalogCards' className='grid grid-cols-1 768:grid-cols-2 1280:grid-cols-4 1920:grid-cols-5 gap-4 auto-rows-fr
+      <div id='catalogCards' className='grid grid-cols-1 768:grid-cols-2 1280:grid-cols-3 1920:grid-cols-4 gap-4 auto-rows-fr
                     '>
-                      {categories.map(category => (
+                      {
+                      categories.map(category => (
           <div key={category.id} onClick={() => handleCardClick(category.id)}>
             <CatalogCard name={category.name} title={category.name} cost={category.cost} imageUrl={category.imageUrl} /> {/* Pass category name and image to CatalogCard */}
           </div>

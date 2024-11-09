@@ -14,13 +14,13 @@ const CatalogCard = ({ title, cost, imageUrl }) => {
             </div>
             <div className="px-6 py-4 flex-grow flex flex-col justify-between">
                 <div>
-                    <div className="font-bold text-xl mb-2 line-clamp-2">{title}</div>
-                    <p className="text-gray-700 text-base 768:text-lg">
+                    <div className="font-bold text-[18px] 768:text-[20px] mb-2 line-clamp-2">{title}</div>
+                    <p className="text-gray-700 text-[16px] 768:text-[18px]">
                         до {cost} т.р. / кг
                     </p>
                 </div>
                 <div className="mt-4">
-                    <Button text='Подробнее' />
+                    <Button styles={`w-[177px]`} text='Подробнее' />
                 </div>
             </div>
         </div>
