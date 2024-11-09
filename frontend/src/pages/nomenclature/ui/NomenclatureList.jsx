@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { categoryAPI, productAPI } from '../../../shared/services/api';
 import NomenclatureCard from '../../../features/nomenclature/ui/NomenclatureCard';
 import NomenclatureTitle from './NomenclatureTitle';
+import Button from '../../../shared/ui/Button';
 
 const NomenclatureList = () => {
   const [category, setCategory] = useState({
@@ -47,10 +48,20 @@ const NomenclatureList = () => {
 
   return (
     <>
-      <NomenclatureTitle title={category.name} cost={category.cost} />
-      <div className="">
+    {category.name !== '' ? <NomenclatureTitle title={category.name} cost={category.cost} /> : <NomenclatureTitle title={'Название категории'} cost={'5 000'}/>}
+      <div>
         <div className='space-y-4 mb-16 1440:hidden'>
-          {category.products.slice(0, visibleCount).map(product => (
+          {category.products ? <NomenclatureCard 
+          key={0} 
+          title={"Пример"} 
+          desc={"Описание примера"} 
+          countType={"КГ."} 
+          typeCostFirst={'Наличные'}
+          typeCostSecond={'Безналичные'}
+          image={'https://cdn2.picryl.com/photo/2021/03/17/soviet-armenian-k50-6-electrolytic-capacitors-0d6cca-1024.jpg'} 
+          costFirst={'9 000'} 
+          costSecond={'10 000'}
+          /> : category.products.slice(0, visibleCount).map(product => (
             <NomenclatureCard 
               key={product.id} 
               title={product.name} 
@@ -63,13 +74,8 @@ const NomenclatureList = () => {
               costSecond={product.costSecond}
             />
           ))}
-          {visibleCount < category.products.length && ( // Проверяем, есть ли скрытые карточки
-            <button 
-              onClick={handleShowMore} 
-              className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 transition"
-            >
-              Показать еще
-            </button>
+          {visibleCount < category.products.length && (
+            <Button text={'Показать еще'} onClick={handleShowMore}/>
           )}
         </div>
 
@@ -79,24 +85,34 @@ const NomenclatureList = () => {
             <div className="justify-start items-center gap-5 flex">
               <div className="w-[380px] text-[#212121] text-xl font-gilroyMedium">Наименование</div>
               <div className="w-[220px] text-[#212121] text-xl font-gilroyMedium">Ед.Изм.</div>
-              <div className="w-[220px] text-[#212121] text-xl font-gilroyMedium">{category.typeCostFirst}</div>
-              <div className="w-[220px] text-[#212121] text-xl font-gilroyMedium">{category.typeCostSecond}</div>
+              <div className="w-[220px] text-[#212121] text-xl font-gilroyMedium">{category.typeCostFirst !== '' ? category.typeCostFirst : 'Первый тип цены'}</div>
+              <div className="w-[220px] text-[#212121] text-xl font-gilroyMedium">{category.typeCostSecond !== '' ? category.typeCostSecond : 'Второй тип цены'}</div>
             </div>
           </div>
           <div className="self-stretch flex-col justify-start items-start gap-5 flex">
-            {category.products.slice(0, visibleCount).map(product => (
-              <NomenclatureCard 
-                key={product.id} 
-                title={product.name} 
-                desc={product.desc} 
-                countType={product.countType} 
-                typeCostFirst={category.typeCostFirst}
-                typeCostSecond={category.typeCostSecond}
-                image={product.imageUrl} 
-                costFirst={product.costFirst} 
-                costSecond={product.costSecond}
-              />
-            ))}
+          {category.products ? <NomenclatureCard 
+          key={0} 
+          title={"Пример"} 
+          desc={"Описание примера"} 
+          countType={"кг."} 
+          typeCostFirst={'Наличные'}
+          typeCostSecond={'Безналичные'}
+          image={'https://cdn2.picryl.com/photo/2021/03/17/soviet-armenian-k50-6-electrolytic-capacitors-0d6cca-1024.jpg'} 
+          costFirst={'9 000'} 
+          costSecond={'10 000'}
+          /> : category.products.slice(0, visibleCount).map(product => (
+            <NomenclatureCard 
+              key={product.id} 
+              title={product.name} 
+              desc={product.desc} 
+              countType={product.countType} 
+              typeCostFirst={category.typeCostFirst}
+              typeCostSecond={category.typeCostSecond}
+              image={product.imageUrl} 
+              costFirst={product.costFirst} 
+              costSecond={product.costSecond}
+            />
+          ))}
             {visibleCount < category.products.length && ( // Проверяем, есть ли скрытые карточки
               <button 
                 onClick={handleShowMore} 

@@ -1,8 +1,8 @@
 import React from 'react'
 
-const Button = ({text, href, styles}) => {
+const Button = ({text, href, styles, onClick}) => {
   return (
-    <a href={href} className={`flex justify-center ButtonFormSubmit cursor-pointer px-10 py-3 rounded-lg bg-clickable-default hover:bg-clickable-hover active:bg-clickable-active transition-all text-base font-normal text-white 768:inline-block 768:text-xl ${styles}`}>
+    <a onClick={onClick} href={href} className={`flex justify-center ButtonFormSubmit cursor-pointer px-10 py-3 rounded-lg bg-clickable-default hover:bg-clickable-hover active:bg-clickable-active transition-all text-base font-normal text-white 768:inline-block 768:text-xl ${styles}`}>
       <div className="text-center">{text}</div>
       </a>
   )

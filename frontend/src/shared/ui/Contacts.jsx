@@ -11,7 +11,7 @@ const Contacts = () => {
             </div>
             <div className='mb-14 960:flex 960:flex-row-reverse 960:justify-between'>
             <div >
-                        <a className='hidden hover:text-gray-400 1280:block text-xl font-gilroyLight' href="https://yandex.ru/maps/-/CDd6y852">Открыть в Яндекс.Картах</a>                        </div>
+                        <a className='hidden  text-link-default-color hover:text-link-hover-color active:text-link-active-color 1280:block text-xl font-gilroyLight' href="https://yandex.ru/maps/-/CDd6y852">Открыть в Яндекс.Картах</a>                        </div>
                 <div className="">
                     <div className='text-xl font-gilroyLight'>
                         <div className='mb-5'>

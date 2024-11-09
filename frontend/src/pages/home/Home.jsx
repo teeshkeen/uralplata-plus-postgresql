@@ -28,7 +28,7 @@ const Home = () => {
     }
   }, [hash]);
   return (
-    <div className=''>
+    <div>
       <Wrapper>
         <Header />
         <Lead /> 

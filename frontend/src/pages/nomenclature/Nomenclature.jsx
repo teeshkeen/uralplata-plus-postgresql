@@ -6,6 +6,7 @@ import NomenclatureList from './ui/NomenclatureList'
 import Wrapper from '../../shared/ui/Wrapper'
 import { useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
+import ScrollToTopButton from '../../features/scroll/ui/Scroll'
 
 const Nomenclature = () => {
   const { hash } = useLocation();
@@ -21,14 +22,21 @@ const Nomenclature = () => {
       }
     }
   }, [hash]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   
   return (
+    <div>
     <Wrapper>
         <Header />
         <NomenclatureList />
         <Contacts />
         <Footer />
     </Wrapper>
+    <ScrollToTopButton />
+    </div>
   )
 }
 

@@ -28,7 +28,7 @@ const ScrollToTopButton = () => {
 
     return (
         <button
-            className={`scroll-to-top ${isVisible ? 'show' : ''}`} // Добавляем класс show
+            className={`scroll-to-top bg-clickable-default hover:bg-clickable-hover active:bg-clickable-active ${isVisible ? 'show' : ''}`} // Добавляем класс show
             onClick={scrollToTop}
             title="Наверх"
         >

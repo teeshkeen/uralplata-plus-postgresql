@@ -15,9 +15,9 @@ const Header = () => {
   return (
     <header className='relative'>
       <div className='flex justify-between items-center mb-5 768:mb-10 1440:block'>
-        <div className='text-2xl 768:text-3xl 960:text-4xl 1440:hidden'>УралПлата.рф</div>
+        <div className='text-2xl 768:text-3xl 960:text-4xl 1440:hidden'><a href="/">УралПлата.рф</a></div>
         <div className="hidden 1440:flex  1440:justify-between 1440:items-center">
-          <div className='hidden text-2xl 768:text-3xl 960:text-4xl 1440:flex'>УралПлата.рф</div>
+          <div className='hidden text-2xl 768:text-3xl 960:text-4xl 1440:flex'><a href="/">УралПлата.рф</a></div>
           <div className='flex gap-x-14 font-gilroyLight text-lg'>
             <NavItem id={''}>Главная</NavItem>
             <NavItem id={'about'}>О компании</NavItem>
